@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            for (var x = 0; x < 5; x++) {
+                console.log(x);
+            }
+            console.log("Poza forem " + +x);
+
+            var foo = (x) => 10 + x;
+            console.log(foo(10));
+
+            var foo = () => {
+                console.log("SIema");
+            };
+            foo();
+
+            foo2();
+            function foo2() {
+                console.log("SIema");
+            }
+
+            function *gen() {
+                yield '1';
+                yield '2';
+                yield '3';
+                return 'Numer : '
+            }
+
+            for (var numer of gen()) {
+                console.log(numer);
+            }
+
+            function *genv2() {
+                var imie = yield "Jakie masz imie ? ";
+                var nazwisko = yield "Jakie masz nazwisko ? ";
+                return imie + ' | ' + nazwisko;
+            }
+
+            var it = genv2();
+            console.log(it.next());
+            console.log(it.next('Seba'));
+            console.log(it.next('Kuba'));
+
+            document.cookie = "imie = Damian";
+            document.cookie = "expires = " + new Date().toUTCString() + ";"
+            var cookie = document.cookie;
+            cookie = cookie.split(";");
+            console.log(cookie[0].split("=")[1]);
+
+            void function vo() {
+                var msg = () => console.log("Cos");
+                msg();
+            }();
+
+            function Car() {
+                this.model = "Po";
+            }
+
+            $ob = new Car();
+            function Car2() {
+                this.cos = "A";
+            }
+
+            $a = Object.assign(new Car(), new Car2());
+            delete $a.cos;
+            console.log($a);
+
+            var emp = {imie: "Siema", nazwisko: "Wi"};
+            var {imie, nazwisko} = emp;
+            console.log(imie);
+
+            var raw_text = String.raw`Hello \n World `
+            console.log(raw_text)
+
+            function isBigEnough(element, index, array) {
+                return (element >= 10);
+            }
+            var passed = [12, 5, 8, 130, 44].filter(isBigEnough);
+            console.log("Test Value : " + passed);
+
+            var numer = [1, 2, 3, 4, 5, 6];
+            var podzielne2 = numer.find((x) => x % 2 == 0);
+            console.log(podzielne2);
+
+            var numer = [1, 2, 3, 4, 5, 6];
+            var podzielne2 = numer.filter((x) => x % 2 == 0);
+            console.log(podzielne2);
+
+            for (let i of Array.from("Witam")) {
+                console.log(i);
+            }
+            ;
+
+            console.log(Array.from(['a', 'b'].keys()));
+
+            var str = "daminaos-11@o2.pl";
+            var re = new RegExp((['@']), 'g');
+            console.log(re.exec(str));
+
+            var map = new Map();
+            map.
+                    set('imie', 'Damian')
+                    .set('nazwisko', 'Maciek');
+            console.log(map.get('imie'));
+            map = new Map([
+                ['imie', 'damian'],
+                ['nazwisko', 'kuba']
+            ]);
+
+            map.delete('imie');
+
+            console.log(map);
+
+            var set = new Set(['a', 'b', 'c', 'd', 'e']);
+            var iterator = set.values();
+            console.log(iterator.next());
+
+            class User
+            {
+                constructor(imie, nazwisko) {
+                    this.imie = imie;
+                    this.nazwisko = nazwisko;
+                }
+
+                test() {
+                    console.log(this.imie);
+                }
+
+                static displ() {
+                    console.log('Statyzne');
+                }
+            }
+
+            User.displ();
+
+            class UserAddres extends User
+            {
+                constructor(imie, nazwisko) {
+                    super(imie, nazwisko);
+                }
+            }
+
+            var user = new UserAddres('Seba', 'mati');
+            user.test();
+
+            function getSume(n1, n2) {
+                valid = function () {
+                    return true;
+                }
+                var promise = new Promise(function (resolve, reject) {
+                    if (valid()) {
+                        reject(Error("Bład"));
+                    } else {
+                        resolve(n1 + n2);
+                    }
+                });
+                return promise;
+            }
+
+            getSume(5, 4).then(function (result) {
+                console.log(result);
+            }, function (error) {
+                console.log(error);
+            })
+
+            window.onerror = function (msg, url, line) {
+                document.write("Wiadomosc : " + msg);
+                document.write("url : " + url);
+                document.write("Linia : " + line);
+            }
+
+            function blad(message) {
+                this.name = 'CustomError';
+                this.message = message;
+            }
+
+            try {
+                throw new blad("Bład");
+            } catch (e) {
+                console.log(e);
+            }
+
+            var userAgent = navigator.userAgent;
+            var opera = (userAgent.indexOf('Opera') != -1);
+            var ie = (userAgent.indexOf('MSIE') != -1);
+            var gecko = (userAgent.indexOf('Gecko') != -1);
+            var netscape = (userAgent.indexOf('Mozilla') != -1);
+            var version = navigator.appVersion;
+
+            console.log(userAgent)
+
+        </script>    
+        <form> 
+            <input type = "button" value = "Click Me" onclick = "myFunc();" /> 
+        </form> 
+    </body>
+</html>
